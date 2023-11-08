@@ -1,4 +1,6 @@
-﻿using DesafioFundamentos.Models;
+﻿using System.Data;
+using System.Runtime.InteropServices;
+using DesafioFundamentos.Models;
 
 // Coloca o encoding para UTF8 para exibir acentuação
 Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -6,12 +8,13 @@ Console.OutputEncoding = System.Text.Encoding.UTF8;
 decimal precoInicial = 0;
 decimal precoPorHora = 0;
 
-Console.WriteLine("Seja bem vindo ao sistema de estacionamento!\n" +
-                  "Digite o preço inicial:");
+Console.WriteLine("\nSeja bem vindo ao sistema de estacionamento!\n" +
+                  "\nDigite o preço inicial:");
 precoInicial = Convert.ToDecimal(Console.ReadLine());
 
-Console.WriteLine("Agora digite o preço por hora:");
+Console.WriteLine("\nAgora digite o preço por hora:");
 precoPorHora = Convert.ToDecimal(Console.ReadLine());
+Console.WriteLine();
 
 // Instancia a classe Estacionamento, já com os valores obtidos anteriormente
 Estacionamento es = new Estacionamento(precoInicial, precoPorHora);
@@ -23,11 +26,15 @@ bool exibirMenu = true;
 while (exibirMenu)
 {
     Console.Clear();
-    Console.WriteLine("Digite a sua opção:");
-    Console.WriteLine("1 - Cadastrar veículo");
-    Console.WriteLine("2 - Remover veículo");
-    Console.WriteLine("3 - Listar veículos");
-    Console.WriteLine("4 - Encerrar");
+    Console.WriteLine("            OPÇÕES            ");
+    Console.WriteLine("------------------------------");
+    Console.WriteLine("| Digite a sua opção:        |");
+    Console.WriteLine("|                            |");
+    Console.WriteLine("| 1 - Cadastrar veículo      |");
+    Console.WriteLine("| 2 - Remover veículo        |");
+    Console.WriteLine("| 3 - Listar veículos        |");
+    Console.WriteLine("| 4 - Encerrar               |");
+    Console.WriteLine("------------------------------\n");
 
     switch (Console.ReadLine())
     {
@@ -48,12 +55,12 @@ while (exibirMenu)
             break;
 
         default:
-            Console.WriteLine("Opção inválida");
+            Console.WriteLine("Opção inválida.\n");
             break;
     }
 
-    Console.WriteLine("Pressione uma tecla para continuar");
+    Console.WriteLine("\nPressione uma tecla para continuar.");
     Console.ReadLine();
 }
 
-Console.WriteLine("O programa se encerrou");
+Console.WriteLine("Sistema encerrado.\n");
